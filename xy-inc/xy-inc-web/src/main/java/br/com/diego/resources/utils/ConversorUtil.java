@@ -10,27 +10,37 @@ import br.com.diego.resources.dtos.PontoInteresseDTO;
 import java.util.ArrayList;
 import java.util.List;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+import java.lang.reflect.Type;
 
 /**
  *
  * @author Diego NOTE
  */
 public class ConversorUtil {
-    
-    public static Object converter(Object origem, Class clazz) {
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(origem, clazz);
-    }
-    
+
     public static List<PontoInteresseDTO> converter(List<PontoInteresse> pontosInteresses) {
         List<PontoInteresseDTO> pontos = new ArrayList<>();
-        
-        for(PontoInteresse pontoInteresse : pontosInteresses) {
+
+        for (PontoInteresse pontoInteresse : pontosInteresses) {
             pontos.add((PontoInteresseDTO) converter(pontoInteresse, PontoInteresseDTO.class));
         }
-        
+
         return pontos;
-       
+
     }
-    
+
+    public static <T> T converter(Object source, Class<T> target) {
+
+        if (source == null) {
+            return null;
+        }
+
+        ModelMapper map = new ModelMapper();
+        map.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        T retorno = map.map(source, target);
+
+        return retorno;
+    }
+
 }

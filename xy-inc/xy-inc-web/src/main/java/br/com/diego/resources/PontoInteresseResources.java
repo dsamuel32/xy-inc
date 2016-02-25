@@ -6,15 +6,11 @@
 package br.com.diego.resources;
 
 import br.com.diego.beans.interfaces.PontoInteresseBean;
-import br.com.diego.exceptions.CamposInvalidosException;
 import br.com.diego.model.PontoInteresse;
 import br.com.diego.resources.dtos.PontoInteresseDTO;
 import br.com.diego.resources.utils.ConversorUtil;
-import br.com.diego.validador.Validador;
-import br.com.diego.validador.ValidadorNumeroNegativo;
+import java.lang.reflect.Type;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
@@ -53,18 +49,31 @@ public class PontoInteresseResources {
         List<PontoInteresse> todosPontos = pontoInteresseBean.findAll();
 
         List<PontoInteresse> pontosEspessificosProximos = pontoInteresseBean.filtrarPontosProximos(todosPontos, coordenadaX, coordenadaY, distanciaMaxima);
-
-        return Response.ok(ConversorUtil.converter(todosPontos)).build();
+        
+        return Response.ok(ConversorUtil.converter(pontosEspessificosProximos)).build();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response save(PontoInteresseDTO pontoInteresseDTO) throws IllegalAccessException {
 
-        PontoInteresse pontoInteresse = (PontoInteresse) ConversorUtil.converter(pontoInteresseDTO, PontoInteresse.class);
-        pontoInteresse = pontoInteresseBean.save(pontoInteresse);
-        return Response.ok(ConversorUtil.converter(pontoInteresse, PontoInteresseDTO.class)).build();
+        if (validarParametros(pontoInteresseDTO)) {
+            PontoInteresse pontoInteresse = (PontoInteresse) ConversorUtil.converter(pontoInteresseDTO, PontoInteresse.class);
+            pontoInteresse = pontoInteresseBean.save(pontoInteresse);
+            return Response.ok(ConversorUtil.converter(pontoInteresse, PontoInteresseDTO.class)).build();
+        }
 
+        return Response.ok().status(Response.Status.BAD_REQUEST).build();
     }
 
+    private Boolean validarParametros(PontoInteresseDTO pontoInteresseDTO) {
+        if (pontoInteresseDTO.getCoordenadaX() == null || pontoInteresseDTO.getCoordenadaY() == null) {
+            return Boolean.FALSE;
+        } else if (pontoInteresseDTO.getCoordenadaX().longValue() < 0 || pontoInteresseDTO.getCoordenadaY().longValue() < 0) {
+            return Boolean.FALSE;
+        }
+
+        return Boolean.TRUE;
+
+    }
 }

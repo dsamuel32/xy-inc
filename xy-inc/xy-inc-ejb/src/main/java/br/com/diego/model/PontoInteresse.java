@@ -33,7 +33,7 @@ public class PontoInteresse implements Serializable {
     @Column(name = "COORDENADA_X", nullable = false)
     private Long coordenadaX;
     
-    @Column(name = "COORDENADA_y", nullable = false)
+    @Column(name = "COORDENADA_Y", nullable = false)
     private Long coordenadaY;
 
     public PontoInteresse() {

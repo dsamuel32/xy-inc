@@ -104,7 +104,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>3.2.1</version>
                 <configuration>
-                    <url>jdbc:mysql://localhost:3306/xy-inc?createDatabaseIfNotExist=true</url>
+                    <url>jdbc:mysql://localhost:3306/xy-inc</url>
                     <user>root</user>
                     <password>root</password>
                     <baselineOnMigrate>true</baselineOnMigrate>
@@ -115,7 +115,6 @@
                         <artifactId>mysql-connector-java</artifactId>
                         <version>5.1.38</version>
                     </dependency>
-
                 </dependencies>
             </plugin>
         </plugins>
