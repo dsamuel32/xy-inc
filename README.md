@@ -1,11 +1,12 @@
 # xy-inc
 
 ###Tecnologias Utilizadas
-- Java EE utilizando EJB, JPA
+- Java EE utilizando EJB, JPA, JAX-RS
 - Mysql
 - Flyway
 - Maven
 - Wildfly 8
+- Web Service Restful
 
 ### Instruções
 - Entrar na pasta do projeto xy-inc-ejb e executar o comando:
