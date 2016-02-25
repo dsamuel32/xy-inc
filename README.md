@@ -53,7 +53,6 @@ Requisição:
 ```sh
 Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse
 Method: GET
-Content-Type: application/json;charset=utf-8
 ```
 
 Resporta:
@@ -79,7 +78,6 @@ Requisição:
 ```sh
 Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse/{coordenadaX}/{coordenadaY}/{distanciaMaxima}
 Method: GET
-Content-Type: application/json;charset=utf-8
 ```
 
 Resporta:
