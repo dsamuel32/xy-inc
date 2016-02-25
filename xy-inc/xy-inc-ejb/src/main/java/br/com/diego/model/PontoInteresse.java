@@ -36,6 +36,16 @@ public class PontoInteresse implements Serializable {
     @Column(name = "COORDENADA_y", nullable = false)
     private Long coordenadaY;
 
+    public PontoInteresse() {
+    }
+
+    public PontoInteresse(Long id, String nome, Long coordenadaX, Long coordenadaY) {
+        this.id = id;
+        this.nome = nome;
+        this.coordenadaX = coordenadaX;
+        this.coordenadaY = coordenadaY;
+    }
+
     public Long getId() {
         return id;
     }

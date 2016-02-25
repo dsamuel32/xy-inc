@@ -1,4 +1,4 @@
-package br.com.diego.beans;
+package br.com.diego.beans.implementacoes;
 
 /*
  * To change this template, choose Tools | Templates
@@ -6,6 +6,7 @@ package br.com.diego.beans;
  */
 
 
+import br.com.diego.beans.interfaces.PontoInteresseBean;
 import br.com.diego.model.PontoInteresse;
 import br.com.diego.repository.PontoInteresseRepository;
 import java.util.List;
@@ -18,35 +19,28 @@ import javax.ejb.Stateless;
  * @author martin
  */
 @Stateless
-public class PontoInteresseBean {
+public class PontoInteresseBeanImpl implements PontoInteresseBean {
 
     @EJB
     private PontoInteresseRepository pontoInteresseRepository;
     
+    @Override
     public List<PontoInteresse> findAll() {
         return pontoInteresseRepository.findAll();
     }
 
+    @Override
     public PontoInteresse save(PontoInteresse pontoInteresse) {
        return pontoInteresseRepository.save(pontoInteresse);
     }
 
-    public void delete(Long id) {
-        PontoInteresse pontoInteresse = pontoInteresseRepository.findById(id);
-        pontoInteresseRepository.delete(pontoInteresse);
-    }
-
-    public PontoInteresse update(PontoInteresse pontoInteresse) {
-        return pontoInteresseRepository.update(pontoInteresse);
-    }
-
+    @Override
     public PontoInteresse findById(Long id) {
         return pontoInteresseRepository.findById(id);
     }
     
-    public List<PontoInteresse> listarPorProximidade(Long coordenadaX, Long coordenadaY, Long distanciaMaxima) {
-        List<PontoInteresse> pontos = pontoInteresseRepository.findAll();
-        
+    @Override
+    public List<PontoInteresse> filtrarPontosProximos(List<PontoInteresse> pontos, Long coordenadaX, Long coordenadaY, Long distanciaMaxima) {
         return pontos.stream()
                 .filter(p -> (Math.abs(p.getCoordenadaX() - coordenadaX) 
                              + Math.abs(p.getCoordenadaY() - coordenadaY)) <= distanciaMaxima)
