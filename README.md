@@ -62,7 +62,10 @@ Resporta:
 Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse
 Method: GET
 Content-Type: application/json;charset=utf-8
-Body: [{"id": 1, "nome":"Meu Local 1","coordenadaX":10,"coordenadaY":20}, {"id": 1, "nome":"Meu Local 2","coordenadaX":100,"coordenadaY":50}]
+Body: [
+       {"id": 1, "nome":"Meu Local 1","coordenadaX":10,"coordenadaY":20}, 
+       {"id": 1, "nome":"Meu Local 2","coordenadaX":100,"coordenadaY":50}
+      ]
 ```
 
 - Listar Pontos Próximos
@@ -85,5 +88,8 @@ Resporta:
 Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse
 Method: GET
 Content-Type: application/json;charset=utf-8
-Body: [{"id": 1, "nome":"Local Próximo 1","coordenadaX":10,"coordenadaY":20}, {"id": 1, "nome":"Local Próximo 2","coordenadaX":100,"coordenadaY":50}]
+Body: [
+       {"id": 1, "nome":"Local Próximo 1","coordenadaX":10,"coordenadaY":20}, 
+       {"id": 1, "nome":"Local Próximo 2","coordenadaX":100,"coordenadaY":50}
+      ]
 ```
