@@ -80,7 +80,7 @@ Requisição feita via GET informando os parâmetros:
 
 Requisição:
 ```sh
-Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse/{coordenadaX}/{coordenadaY}/{distanciaMaxima}
+Url: http://localhost:8080/xy-inc-web/api/ponto-interesse/listar-proximidades/{coordenadaX}/{coordenadaY}/{distanciaMaxima}
 Method: GET
 ```
 
