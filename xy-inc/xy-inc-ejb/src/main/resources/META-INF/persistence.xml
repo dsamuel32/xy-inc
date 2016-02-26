@@ -3,9 +3,9 @@
   <persistence-unit name="xy-inc" transaction-type="JTA">
     <jta-data-source>java:/xy-inc</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
+    <!--<properties>-->
       <!--<property name="javax.persistence.schema-generation.database.action" value="create"/>-->
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-    </properties>
+      <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
+    <!--</properties>-->
   </persistence-unit>
 </persistence>
