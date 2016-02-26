@@ -9,6 +9,9 @@
 - Web Service Restful
 
 ### Instruções
+
+- Criar o Banco de dados com o nome xy-inc
+
 - Entrar na pasta do projeto xy-inc-ejb e executar o comando:
 
 ```sh
