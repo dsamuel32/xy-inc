@@ -9,6 +9,9 @@
 - Web Service Restful
 
 ### Instruções
+
+- Criar o Banco de dados com o nome xy-inc
+
 - Entrar na pasta do projeto xy-inc-ejb e executar o comando:
 
 ```sh
@@ -77,7 +80,7 @@ Requisição feita via GET informando os parâmetros:
 
 Requisição:
 ```sh
-Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse/{coordenadaX}/{coordenadaY}/{distanciaMaxima}
+Url: http://localhost:8080/xy-inc-web/api/ponto-interesse/listar-proximidades/{coordenadaX}/{coordenadaY}/{distanciaMaxima}
 Method: GET
 ```
 
