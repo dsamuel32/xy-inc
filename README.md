@@ -59,7 +59,7 @@ Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse
 Method: GET
 ```
 
-Resporta:
+Resposta:
 
 ```sh
 Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse
@@ -84,7 +84,7 @@ Url: http://localhost:8080/xy-inc-web/api/ponto-interesse/listar-proximidades/{c
 Method: GET
 ```
 
-Resporta:
+Resposta:
 
 ```sh
 Url: http://localhost:8080/xy-inc-web/resources/api/ponto-interesse
